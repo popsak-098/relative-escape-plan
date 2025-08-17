@@ -8,10 +8,10 @@ import { useState, useEffect, useRef } from "react";
 
 // These are some fun, silly excuses we can show the user.
 const funnyExcuses = [
-  "Oh no, my pet rock just sent me an emergency text!",
-  "Sorry, my smart-fridge is calling, it's out of pickles.",
-  "I have to take this, it's my agent. They're making a movie about my life.",
-  "It's the International Society of Mystery Solvers, I'm their top consultant.",
+  "Onn wait cheyye, enne NASA il ninnu vilikkunnu",
+  "Hello enth, kalyana chekkan olichodi enno",
+  "Ammaava, oonu theeraraayi enn",
+  "February 30, please save the date",
   "My plants are calling, they need me to water them... urgently.",
   "This is my landlord. My apartment is apparently floating away.",
 ];
@@ -20,7 +20,7 @@ const funnyExcuses = [
 export default function HomePage() {
   // Here we set up our "memory boxes" (state) using useState.
   const [isCallScreenVisible, setIsCallScreenVisible] = useState(false);
-  const [timer, setTimer] = useState(10); // The call will be triggered in 10 seconds.
+  const [timer, setTimer] = useState(5); // The call will be triggered in 10 seconds.
   const [isCallActive, setIsCallActive] = useState(false);
   const [showExcuse, setShowExcuse] = useState(false);
   const [selectedExcuse, setSelectedExcuse] = useState("");
@@ -104,7 +104,7 @@ export default function HomePage() {
         {!isCallScreenVisible && !showExcuse ? (
           // --- 1. The Initial Screen ---
           <>
-            <h1 className="text-3xl font-bold text-teal-400 mb-2">Relative Escape Plan</h1>
+            <h1 className="text-3xl font-bold text-teal-400 mb-2">"Kalyanam Onnum Aayille Mole"</h1>
             <p className="text-gray-300 mb-6">
               Need a quick exit? Activate a fake call to your phone.
             </p>
@@ -112,7 +112,7 @@ export default function HomePage() {
               onClick={handleActivate}
               className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-4 rounded-xl text-lg shadow-lg transition-transform transform hover:scale-105"
             >
-              Activate Fake Call
+             ESCAPE!!!!
             </button>
           </>
         ) : showExcuse ? (
@@ -134,7 +134,7 @@ export default function HomePage() {
           <div className="bg-black rounded-2xl p-6 animate-pulse">
             <div className="flex flex-col items-center">
               <p className="text-gray-400 text-lg">Incoming Call...</p>
-              <h2 className="text-5xl font-bold my-4">UNKNOWN NUMBER</h2>
+              <h2 className="text-5xl font-bold my-4">Hadi</h2>
               <div className="w-full flex justify-around mt-8">
                 <button 
                   onClick={handleAnswerCall}

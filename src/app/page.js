@@ -20,7 +20,7 @@ const funnyExcuses = [
 export default function HomePage() {
   // Here we set up our "memory boxes" (state) using useState.
   const [isCallScreenVisible, setIsCallScreenVisible] = useState(false);
-  const [timer, setTimer] = useState(10); // The call will be triggered in 10 seconds.
+  const [timer, setTimer] = useState(5); // The call will be triggered in 5 seconds.
   const [isCallActive, setIsCallActive] = useState(false);
   const [showExcuse, setShowExcuse] = useState(false);
   const [selectedExcuse, setSelectedExcuse] = useState("");
@@ -104,7 +104,7 @@ export default function HomePage() {
         {!isCallScreenVisible && !showExcuse ? (
           // --- 1. The Initial Screen ---
           <>
-            <h1 className="text-3xl font-bold text-teal-400 mb-2">Relative Escape Plan</h1>
+            <h1 className="text-3xl font-bold text-teal-400 mb-2">"kalyanam onnum aayille mole"</h1>
             <p className="text-gray-300 mb-6">
               Need a quick exit? Activate a fake call to your phone.
             </p>
@@ -112,7 +112,7 @@ export default function HomePage() {
               onClick={handleActivate}
               className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-4 rounded-xl text-lg shadow-lg transition-transform transform hover:scale-105"
             >
-              Activate Fake Call
+              Escape!!!
             </button>
           </>
         ) : showExcuse ? (

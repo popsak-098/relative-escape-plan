@@ -3,12 +3,12 @@
 "use client";
 
 // We're importing two essential tools from React: 'useState' and 'useEffect'.
-// NEW: We're also importing 'useRef' to get a direct reference to our ringtone object.
+// We're also importing 'useRef' to get a direct reference to our ringtone object.
 import { useState, useEffect, useRef } from "react";
 
 // These are some fun, silly excuses we can show the user.
 const funnyExcuses = [
-  "Onn wait cheyye, enne NASA il ninnu vilikkunnu",
+ "Onn wait cheyye, enne NASA il ninnu vilikkunnu",
   "Hello enth, kalyana chekkan olichodi enno",
   "Ammaava, sadhya theeraraayi enn",
   "February 30, please save the date",
@@ -20,12 +20,12 @@ const funnyExcuses = [
 export default function HomePage() {
   // Here we set up our "memory boxes" (state) using useState.
   const [isCallScreenVisible, setIsCallScreenVisible] = useState(false);
-  const [timer, setTimer] = useState(5); // The call will be triggered in 10 seconds.
+  const [timer, setTimer] = useState(10); // The call will be triggered in 10 seconds.
   const [isCallActive, setIsCallActive] = useState(false);
   const [showExcuse, setShowExcuse] = useState(false);
   const [selectedExcuse, setSelectedExcuse] = useState("");
 
-  // NEW: We use a ref to hold our ringtone synthesizer. This prevents it from
+  // We use a ref to hold our ringtone synthesizer. This prevents it from
   // being recreated on every render, which is more efficient.
   const ringtone = useRef(null);
 
@@ -34,7 +34,7 @@ export default function HomePage() {
     if (isCallScreenVisible && !isCallActive) {
       if (timer === 0) {
         setIsCallActive(true);
-        // NEW: When the call becomes active, we start the ringtone.
+        // When the call becomes active, we start the ringtone.
         // We check if Tone is available (loaded by the script).
         if (window.Tone) {
           // Create a simple synthesizer for the sound.
@@ -55,7 +55,7 @@ export default function HomePage() {
     }
   }, [isCallScreenVisible, isCallActive, timer]);
 
-  // NEW: A helper function to stop the ringtone sound.
+  // A helper function to stop the ringtone sound.
   const stopRingtone = () => {
     if (window.Tone && window.Tone.Transport.state === 'started') {
       window.Tone.Transport.stop();
@@ -65,7 +65,7 @@ export default function HomePage() {
 
   // This function is called when the main "Activate" button is pressed.
   const handleActivate = async () => {
-    // NEW: Audio can only start after a user interaction. This ensures
+    // Audio can only start after a user interaction. This ensures
     // the audio context is ready when we need it.
     if (window.Tone && window.Tone.context.state !== 'running') {
       await window.Tone.start();
@@ -75,7 +75,7 @@ export default function HomePage() {
 
   // This function simulates "answering" the call.
   const handleAnswerCall = () => {
-    // NEW: Stop the ringtone when the call is answered.
+    // Stop the ringtone when the call is answered.
     stopRingtone();
     const randomIndex = Math.floor(Math.random() * funnyExcuses.length);
     setSelectedExcuse(funnyExcuses[randomIndex]);
@@ -85,12 +85,12 @@ export default function HomePage() {
 
   // This function resets the app back to its starting state.
   const handleReset = () => {
-    // NEW: Stop the ringtone if the user resets.
+    // Stop the ringtone if the user resets.
     stopRingtone();
     setIsCallScreenVisible(false);
     setIsCallActive(false);
     setShowExcuse(false);
-    setTimer(10); // Reset the timer back to 10 seconds.
+    setTimer(5); // Reset the timer back to 5 seconds.
   };
 
   // This is the JSX, which looks like HTML. It describes what our app looks like.
@@ -104,7 +104,7 @@ export default function HomePage() {
         {!isCallScreenVisible && !showExcuse ? (
           // --- 1. The Initial Screen ---
           <>
-            <h1 className="text-3xl font-bold text-teal-400 mb-2">"Kalyanam Onnum Aayille Mole"</h1>
+            <h1 className="text-3xl font-bold text-teal-400 mb-2">Relative Escape Plan</h1>
             <p className="text-gray-300 mb-6">
               Need a quick exit? Activate a fake call to your phone.
             </p>
@@ -112,15 +112,16 @@ export default function HomePage() {
               onClick={handleActivate}
               className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-4 rounded-xl text-lg shadow-lg transition-transform transform hover:scale-105"
             >
-             ESCAPE!!!!
+              Activate Fake Call
             </button>
           </>
         ) : showExcuse ? (
           // --- 2. The Excuse Screen ---
           <>
             <h2 className="text-2xl font-bold text-yellow-400 mb-4">Your Perfect Excuse:</h2>
+            {/* THIS IS THE FIX: The quotation marks have been removed from around the excuse. */}
             <p className="text-lg bg-gray-700 p-4 rounded-lg mb-6">
-              "{selectedExcuse}"
+              {selectedExcuse}
             </p>
             <button
               onClick={handleReset}
@@ -134,7 +135,7 @@ export default function HomePage() {
           <div className="bg-black rounded-2xl p-6 animate-pulse">
             <div className="flex flex-col items-center">
               <p className="text-gray-400 text-lg">Incoming Call...</p>
-              <h2 className="text-5xl font-bold my-4">Hadi</h2>
+              <h2 className="text-5xl font-bold my-4">UNKNOWN NUMBER</h2>
               <div className="w-full flex justify-around mt-8">
                 <button 
                   onClick={handleAnswerCall}

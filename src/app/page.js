@@ -104,7 +104,7 @@ export default function HomePage() {
         {!isCallScreenVisible && !showExcuse ? (
           // --- 1. The Initial Screen ---
           <>
-            <h1 className="text-3xl font-bold text-teal-400 mb-2">"kalyanam onnum aayille mole"</h1>
+            <h1 className="text-3xl font-bold text-teal-400 mb-2">Kalyanam Onnum Aayille mole</h1>
             <p className="text-gray-300 mb-6">
               Need a quick exit? Activate a fake call to your phone.
             </p>
@@ -112,7 +112,7 @@ export default function HomePage() {
               onClick={handleActivate}
               className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-4 rounded-xl text-lg shadow-lg transition-transform transform hover:scale-105"
             >
-              Escape!!!
+              Escape
             </button>
           </>
         ) : showExcuse ? (

@@ -10,10 +10,10 @@ import { useState, useEffect, useRef } from "react";
 const funnyExcuses = [
   "Onn wait cheyye, enne NASA il ninnu vilikkunnu",
   "Hello enth, kalyana chekkan olichodi enno",
-  "Ammaava, oonu theeraraayi enn",
+  "Ammaava, sadhya theeraraayi enn",
   "February 30, please save the date",
-  "My plants are calling, they need me to water them... urgently.",
-  "This is my landlord. My apartment is apparently floating away.",
+  "Ente jyolsyan aa viliche, ente oru ammavan marikkaar enn",
+  "Onn wait cheyye, ente gynaecologist vilikkunnu",
 ];
 
 // This is our main component, the heart of our app.
